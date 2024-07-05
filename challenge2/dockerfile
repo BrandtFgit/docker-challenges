@@ -1,0 +1,20 @@
+# node.js
+FROM node:14
+
+# working directory
+WORKDIR /app
+
+# copy package.json and package-lock to working directory
+COPY package*.json ./
+
+# install dependencies
+RUN npm install
+
+# copy application code to working directory
+COPY . .
+
+# expose a port
+EXPOSE 3000
+
+# make the command to run the app
+CMD ["node", "server.js"]
